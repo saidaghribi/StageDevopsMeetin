@@ -1,6 +1,6 @@
 package com.example.meeting.meetingsaida.controllers;
 
-//import com.example.meeting.meetingsaida.Utils.QRCodeGenerator;
+import com.example.meeting.meetingsaida.Utils.QRCodeGenerator;
 import com.google.zxing.WriterException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -22,7 +22,7 @@ public class MeetingController {
         List<Meeting> meetings = meetingService.getmeetings();
         if (!meetings.isEmpty()){
             for (Meeting meeting : meetings){
-               // QRCodeGenerator.generateQRCode(meeting);
+                QRCodeGenerator.generateQRCode(meeting);
             }
         }
         return ResponseEntity.ok(meetingService.getmeetings());
